@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+       <record id="view_tree_learner" model="ir.ui.view">
+           <field name="name">Learner list</field>
+           <field name="model">vocabulary.learner</field>
+           <field name="arch" type="xml">
+               <tree>
+                    <field name="name"/>
+                    <field name="title" optional="show"/>
+                    <field name="id" optional="hide"/>
+                    <field name="learn_section" optional="hide"/>
+                    <field name="word_count" optional="hide"/>
+               </tree>
+           </field>
+       </record>
+       <record id="view_form_learner" model="ir.ui.view">
+           <field name="name">Learner form</field>
+           <field name="model">vocabulary.learner</field>
+           <field name="arch" type="xml">
+               <form>
+                   <sheet>
+                       <widget name="web_ribbon" title="Mẫu giáo" bg_color="bg-danger" attrs="{'invisible': [('title', '!=', 'Mẫu giáo')]}"/>
+                       <widget name="web_ribbon" title="Tiểu học" bg_color="bg-danger" attrs="{'invisible': [('title', '!=', 'Tiểu học')]}"/>
+                       <widget name="web_ribbon" title="THCS" bg_color="bg-danger" attrs="{'invisible': [('title', '!=', 'Trung học cơ sở')]}"/>
+                       <widget name="web_ribbon" title="THPT" bg_color="bg-danger" attrs="{'invisible': [('title', '!=', 'Trung học phổ thông')]}"/>
+                       <widget name="web_ribbon" title="Đại học" bg_color="bg-warning" attrs="{'invisible': [('title', '!=', 'Đại học')]}"/>
+                       <field name="image" widget="image" class="oe_avatar"/>
+                       <div class="oe_title">
+                            <h1>
+                                <field name="name" default_focus="1" placeholder="Tên"/>
+                            </h1>
+                           <strong><field name="title"/></strong>
+                        </div>
+                       <group>
+                           <field name="learn_section"/>
+                           <field name="word_count"/>
+                       </group>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="view_graph_learner" model="ir.ui.view">
+        <field name="name">Learner graph</field>
+        <field name="model">vocabulary.learner</field>
+        <field name="arch" type="xml">
+            <graph string="Learner">
+                <field name="name"/>
+                <field name="word_count" type="measure"/>
+            </graph>
+        </field>
+    </record>
+   </data>
+</odoo>

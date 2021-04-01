@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+       <record id="view_tree_example" model="ir.ui.view">
+           <field name="name">Example list</field>
+           <field name="model">vocabulary.example</field>
+           <field name="arch" type="xml">
+               <tree>
+                    <field name="id"/>
+                    <field name="example"/>
+                    <field name="word_ids" optional="hide" widget="many2many_tags"/>
+               </tree>
+           </field>
+       </record>
+       <record id="view_form_example" model="ir.ui.view">
+           <field name="name">Example form</field>
+           <field name="model">vocabulary.example</field>
+           <field name="arch" type="xml">
+               <form>
+                   <sheet>
+                       <group>
+                           <field name="example"/>
+                           <field name="word_ids" widget="many2many_tags"/>
+                       </group>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="view_kanban_example" model="ir.ui.view">
+           <field name="name">Example kanban</field>
+           <field name="model">vocabulary.example</field>
+           <field name="arch" type="xml">
+               <kanban class="o_kanban_small_column">
+                    <field name="id"/>
+                    <field name="example"/>
+                    <field name="word_ids"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div t-attf-class="oe_kanban_content">
+                                    <strong><field name="example"/></strong>
+                                    <br/>
+                                    Từ vựng:
+                                    <field name="word_ids" widget="many2many_tags"/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+               </kanban>
+           </field>
+       </record>
+   </data>
+</odoo>

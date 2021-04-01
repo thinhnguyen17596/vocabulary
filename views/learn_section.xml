@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+       <record id="view_search_learn_section" model="ir.ui.view">
+            <field name="name">Learn section search</field>
+            <field name="model">vocabulary.learn_section</field>
+            <field name="arch" type="xml">
+                <search string="Phiên học">
+                    <searchpanel>
+                        <field name="state" icon="fa-users"/>
+                    </searchpanel>
+                </search>
+             </field>
+        </record>
+       <record id="view_tree_learn_section" model="ir.ui.view">
+           <field name="name">Learn section list</field>
+           <field name="model">vocabulary.learn_section</field>
+           <field name="arch" type="xml">
+               <tree>
+                    <field name="learner"/>
+                    <field name="start_date" optional="show"/>
+                    <field name="end_date" optional="show"/>
+                    <field name="word_ids" optional="hide" widget="many2many_tags"/>
+                    <field name="word_count" optional="show"/>
+               </tree>
+           </field>
+       </record>
+       <record id="view_form_learn_section" model="ir.ui.view">
+           <field name="name">Learn section form</field>
+           <field name="model">vocabulary.learn_section</field>
+           <field name="arch" type="xml">
+               <form>
+                   <header>
+                        <button name="set_open" string="Bắt đầu học" states="init" type="object" class="oe_highlight" groups="base.group_user"/>
+                        <button name="set_close" string="Xác nhận đã học xong" states="learning" type="object" groups="base.group_user"/>
+                        <button name="set_review" string="Ôn tập" states="learned" type="object" groups="base.group_user"/>
+                        <button name="reset_state" string="Đặt lại" type="object" groups="base.group_user"/>
+                        <field name="state" widget="statusbar" statusbar_visible="learning,learned,review"/>
+                    </header>
+                   <sheet>
+                       <div class="oe_button_box" name="button_box"/>
+                       <group>
+                           <group>
+                               <field name="learner"/>
+                               <field name="word_ids" widget="many2many_tags"/>
+                               <field name="word_count"/>
+                           </group>
+                           <group>
+                               <field name="start_date"/>
+                               <field name="end_date"/>
+                           </group>
+                       </group>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+   </data>
+</odoo>

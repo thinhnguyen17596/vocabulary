@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+       <record id="view_search_words" model="ir.ui.view">
+            <field name="name">words search</field>
+            <field name="model">vocabulary.words</field>
+            <field name="arch" type="xml">
+                <search string="Danh mục">
+                    <searchpanel>
+                        <field name="category_ids" icon="fa-users"/>
+                    </searchpanel>
+                </search>
+             </field>
+        </record>
+
+       <record id="view_tree_words" model="ir.ui.view">
+           <field name="name">Words list</field>
+           <field name="model">vocabulary.words</field>
+           <field name="arch" type="xml">
+               <tree>
+                    <field name="name"/>
+                    <field name="pronunciation" optional="hide"/>
+                    <field name="id" optional="hide"/>
+                    <field name="category_ids"/>
+                    <field name="meaning" optional="hide"/>
+                    <field name="example" optional="hide"/>
+                    <field name="test_id" optional="hide"/>
+                    <field name="learn_section_count" optional="show"/>
+               </tree>
+           </field>
+       </record>
+
+       <record id="view_form_words" model="ir.ui.view">
+           <field name="name">Words form</field>
+           <field name="model">vocabulary.words</field>
+           <field name="arch" type="xml">
+               <form>
+                   <sheet>
+                       <div class="oe_title">
+                            <h1>
+                                <label for="name" class="oe_edit_only"/>
+                                <field name="name" default_focus="1"/>
+                            </h1>
+                           <field name="pronunciation" placeholder="Phát âm"/>
+                        </div>
+                       <group>
+                           <group>
+                               <field name="category_ids"/>
+                           </group>
+                           <group>
+                               <field name="learn_section_count"/>
+                           </group>
+                       </group>
+                       <notebook>
+                               <page name="meaning" string="Ý nghĩa">
+                                   <div class="oe_title">
+                                       <field name="meaning" mode="kanban"/>
+                                   </div>
+                               </page>
+                               <page name="example" string="Ví dụ">
+                                   <div class="oe_title">
+                                       <field name="example" mode="kanban"/>
+                                   </div>
+                               </page>
+                               <page name="test" string="Kiểm tra">
+                                   <div class="oe_title">
+                                       <field name="test_id"/>
+                                   </div>
+                               </page>
+                           </notebook>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+
+       <record id="view_graph_words" model="ir.ui.view">
+            <field name="name">words graph</field>
+            <field name="model">vocabulary.words</field>
+            <field name="arch" type="xml">
+                <graph string="Từ vựng">
+                    <field name="name"/>
+                    <field name="learn_section_count" type="measure"/>
+                </graph>
+            </field>
+       </record>
+       
+       
+   </data>
+</odoo>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+       <record id="view_tree_meaning" model="ir.ui.view">
+           <field name="name">Meaning list</field>
+           <field name="model">vocabulary.meaning</field>
+           <field name="arch" type="xml">
+               <tree>
+                    <field name="type"/>
+                    <field name="meaning"/>
+                    <field name="related_words" optional="show" widget="many2many_tags"/>
+               </tree>
+           </field>
+       </record>
+
+       <record id="view_form_meaning" model="ir.ui.view">
+           <field name="name">Meaning form</field>
+           <field name="model">vocabulary.meaning</field>
+           <field name="arch" type="xml">
+               <form>
+                   <sheet>
+                       <group>
+                           <group>
+                               <field name="type"/>
+                               <field name="meaning"/>
+                               <field name="related_words" widget="many2many_tags"/>
+                               <field name="word_id"/>
+                           </group>
+                       </group>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="view_kanban_meaning" model="ir.ui.view">
+           <field name="name">Meaning kanban</field>
+           <field name="model">vocabulary.meaning</field>
+           <field name="arch" type="xml">
+               <kanban class="o_kanban_small_column">
+                    <field name="id"/>
+                    <field name="type"/>
+                    <field name="meaning"/>
+                    <field name="related_words"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div t-attf-class="oe_kanban_content">
+                                    <!-- title -->
+                                    <strong style="color:blue;"><field name="type"/></strong>
+                                    <br/>
+                                    <strong><field name="meaning"/></strong>
+                                    <br/>
+                                    Từ tương tự:
+                                    <field name="related_words" widget="many2many_tags"/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+               </kanban>
+           </field>
+       </record>
+   </data>
+</odoo>

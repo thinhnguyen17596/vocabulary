@@ -1,0 +1,108 @@
+<odoo>
+  <data>
+
+      <!-- actions opening views on models -->
+      <record model="ir.actions.act_window" id="student_action_window">
+        <field name="name">Học sinh</field>
+        <field name="res_model">res.users</field>
+        <field name="view_mode">kanban,tree,search,form,graph</field>
+      </record>
+
+      <record model="ir.actions.act_window" id="learn_section_action_window">
+        <field name="name">Phiên học</field>
+        <field name="res_model">vocabulary.learn_section</field>
+        <field name="view_mode">tree,search,form</field>
+      </record>
+
+      <record model="ir.actions.act_window" id="word_action_window">
+        <field name="name">Từ vựng</field>
+        <field name="res_model">vocabulary.words</field>
+        <field name="view_mode">tree,form,graph,search</field>
+      </record>
+
+      <record model="ir.actions.act_window" id="category_action_window">
+        <field name="name">Danh mục</field>
+        <field name="res_model">vocabulary.category</field>
+        <field name="view_mode">kanban,tree,form,graph</field>
+      </record>
+
+      <record model="ir.actions.act_window" id="meaning_action_window">
+        <field name="name">Ý nghĩa</field>
+        <field name="res_model">vocabulary.meaning</field>
+        <field name="view_mode">kanban,tree,form</field>
+      </record>
+
+      <record model="ir.actions.act_window" id="example_action_window">
+        <field name="name">Ví dụ</field>
+        <field name="res_model">vocabulary.example</field>
+        <field name="view_mode">kanban,tree,form</field>
+      </record>
+
+      <record model="ir.actions.act_window" id="test_action_window">
+        <field name="name">Kiểm tra</field>
+        <field name="res_model">vocabulary.test</field>
+        <field name="view_mode">tree,kanban,form</field>
+      </record>
+
+      <record model="ir.actions.act_window" id="quiz_action_window">
+        <field name="name">Câu hỏi</field>
+        <field name="res_model">vocabulary.quiz</field>
+        <field name="view_mode">tree,form</field>
+      </record>
+
+      <record model="ir.actions.act_window" id="student_action_graph" >
+          <field name="name">Phân tích học sinh</field>
+          <field name="res_model">res.users</field>
+          <field name="view_mode">graph</field>
+      </record>
+
+      <record model="ir.actions.act_window" id="words_action_graph" >
+          <field name="name">Phân tích từ vựng</field>
+          <field name="res_model">vocabulary.words</field>
+          <field name="view_mode">graph</field>
+      </record>
+
+      <record model="ir.actions.act_window" id="category_action_graph">
+        <field name="name">Phân tích danh mục</field>
+        <field name="res_model">vocabulary.category</field>
+        <field name="view_mode">graph</field>
+      </record>
+
+      <!-- Top menu item -->
+      <menuitem name="Học từ vựng" id="vocabulary_menu_root"/>
+
+      <!-- menu categories -->
+      <menuitem name="Học sinh" id="vocabulary_learner" parent="vocabulary_menu_root"/>
+      <menuitem name="Từ vựng" id="vocabulary_words" parent="vocabulary_menu_root"/>
+      <menuitem name="Kiểm tra" id="vocabulary_test" parent="vocabulary_menu_root"/>
+      <menuitem name="Báo cáo" id="vocabulary_report" parent="vocabulary_menu_root"/>
+
+      <!-- actions -->
+      <menuitem name="Học sinh" id="vocabulary_student_list" parent="vocabulary_learner"
+                action="student_action_window"/>
+      <menuitem name="Phiên học" id="vocabulary_learn_section_list" parent="vocabulary_learner"
+                action="learn_section_action_window"/>
+
+      <menuitem name="Từ vựng" id="vocabulary_words_list" parent="vocabulary_words"
+                action="word_action_window"/>
+      <menuitem name="Danh mục" id="vocabulary_category_list" parent="vocabulary_words"
+                action="category_action_window"/>
+      <menuitem name="Ý nghĩa" id="vocabulary_meaning_list" parent="vocabulary_words"
+                action="meaning_action_window"/>
+      <menuitem name="Ví dụ" id="vocabulary_example_list" parent="vocabulary_words"
+                action="example_action_window"/>
+
+      <menuitem name="Kiểm tra" id="vocabulary_test_list" parent="vocabulary_test"
+                action="test_action_window"/>
+      <menuitem name="Câu hỏi" id="vocabulary_quiz_list" parent="vocabulary_test"
+                action="quiz_action_window"/>
+
+      <menuitem name="Phân tích học sinh" id="vocabulary_student_analysis" parent="vocabulary_report"
+                action="student_action_graph"/>
+      <menuitem name="Phân tích từ vựng" id="vocabulary_words_analysis" parent="vocabulary_report"
+                action="words_action_graph"/>
+      <menuitem name="Phân tích danh mục" id="vocabulary_category_analysis" parent="vocabulary_report"
+                action="category_action_graph"/>
+
+  </data>
+</odoo>

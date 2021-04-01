@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+       <record id="view_tree_quiz" model="ir.ui.view">
+           <field name="name">Quiz list</field>
+           <field name="model">vocabulary.quiz</field>
+           <field name="arch" type="xml">
+               <tree>
+                    <field name="name"/>
+                    <field name="test_id" optional="show"/>
+               </tree>
+           </field>
+       </record>
+       <record id="view_form_quiz" model="ir.ui.view">
+           <field name="name">Quiz form</field>
+           <field name="model">vocabulary.quiz</field>
+           <field name="arch" type="xml">
+               <form>
+                   <sheet>
+                       <div class="oe_title">
+                           <h1>
+                               <label for="name" class="oe_edit_only"/>
+                               <field name="name" default_focus="1"/>
+                           </h1>
+                           <field name="show_answer" type="checkbox"/>
+                           <label for="show_answer"/>
+                       </div>
+                           <group>
+                               <field name="choice1"/>
+                               <field name="choice2"/>
+                               <field name="choice3"/>
+                               <field name="choice4"/>
+                               <field name="answer" attrs="{'invisible': [('show_answer', '!=', True)]}"/>
+                               <field name="test_id"/>
+                           </group>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+   </data>
+</odoo>

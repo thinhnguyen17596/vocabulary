@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_res_users,res_users,model_res_users,,1,1,1,1
+access_vocabulary_learn_section,vocabulary_learn_section,model_vocabulary_learn_section,,1,1,1,1
+access_vocabulary_words,vocabulary_words,model_vocabulary_words,,1,1,1,1
+access_vocabulary_category,vocabulary_category,model_vocabulary_category,,1,1,1,1
+access_vocabulary_meaning,vocabulary_meaning,model_vocabulary_meaning,,1,1,1,1
+access_vocabulary_example,vocabulary_example,model_vocabulary_example,,1,1,1,1
+access_vocabulary_test,vocabulary_test,model_vocabulary_test,,1,1,1,1
+access_vocabulary_quiz,vocabulary_quiz,model_vocabulary_quiz,,1,1,1,1

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+       <record id="view_tree_student" model="ir.ui.view">
+           <field name="name">Student list</field>
+           <field name="model">res.users</field>
+
+           <field name="arch" type="xml">
+               <tree>
+                    <field name="name"/>
+                    <field name="title" optional="show"/>
+                    <field name="id" optional="hide"/>
+                    <field name="learn_section" optional="hide"/>
+                    <field name="word_count" optional="hide"/>
+               </tree>
+           </field>
+       </record>
+
+       <record id="view_student_form" model="ir.ui.view">
+           <field name="name">res user inherit</field>
+           <field name="model">res.users</field>
+           <field name="inherit_id" ref="base.view_users_simple_form"/>
+           <field name="arch" type="xml">
+               <xpath expr="/form/sheet/group" position="replace">
+                   <strong><field name="title"/></strong>
+                   <group>
+                       <field name="learn_section"/>
+                       <field name="word_count"/>
+                   </group>
+               </xpath>
+           </field>
+       </record>
+
+       <record id="view_kanban_student" model="ir.ui.view">
+            <field name="name">student kanban</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_res_users_kanban"/>
+            <field name="arch" type="xml">
+                <xpath expr='//kanban/templates/t/div/div[2]/ul/li[4]' position="replace">
+                </xpath>
+                <xpath expr='//kanban/templates/t/div/div[2]/ul/li[4]' position="after">
+                    <field name="title"/>
+                    <br/>
+                    Đã học
+                    <field name="word_count"/>
+                     Từ vựng
+                </xpath>
+            </field>
+        </record>
+
+       <record id="view_graph_student" model="ir.ui.view">
+            <field name="name">student graph</field>
+            <field name="model">res.users</field>
+            <field name="arch" type="xml">
+                <graph string="Học sinh">
+                    <field name="name"/>
+                    <field name="word_count" type="measure"/>
+                </graph>
+            </field>
+       </record>
+   </data>
+</odoo>
